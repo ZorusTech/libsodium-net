@@ -5,9 +5,9 @@
     <RootNamespace>Sodium</RootNamespace>
     <PackageId>libsodium-net</PackageId>
     <Product>libsodium-net</Product>
-    <Version>1.0.17</Version>
-    <AssemblyVersion>0.12.0.0</AssemblyVersion>
-    <FileVersion>0.12.0.0</FileVersion>
+    <Version>1.0.18</Version>
+    <AssemblyVersion>0.13.0.0</AssemblyVersion>
+    <FileVersion>0.13.0.0</FileVersion>
     <Authors>Adam Caudill</Authors>
     <LicenseUrl>https://raw.githubusercontent.com/adamcaudill/libsodium-net/master/LICENSE</LicenseUrl>
     <ProjectUrl>https://github.com/adamcaudill/libsodium-net</ProjectUrl>
@@ -15,7 +15,13 @@
     <Description>A secure cryptographic library</Description>
     <Copyright>Copyright (c) 2013 - 2016 Adam Caudill &amp; Contributors</Copyright>
     <Tags>encryption libsodium XSalsa20 Curve25519 Ed25519 Poly1305 NaCl AES GCM scrypt Argon Argon2 password hash</Tags>
-    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.2;net46</TargetFrameworks>
+    <PackageReleaseNotes>Un-dan the targets</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.2|AnyCPU'">
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
