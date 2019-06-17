@@ -5,9 +5,9 @@
     <RootNamespace>Sodium</RootNamespace>
     <PackageId>libsodium-net</PackageId>
     <Product>libsodium-net</Product>
-    <Version>1.0.18</Version>
-    <AssemblyVersion>0.13.0.0</AssemblyVersion>
-    <FileVersion>0.13.0.0</FileVersion>
+    <Version>1.0.19</Version>
+    <AssemblyVersion>0.14.0.0</AssemblyVersion>
+    <FileVersion>0.14.0.0</FileVersion>
     <Authors>Adam Caudill</Authors>
     <LicenseUrl>https://raw.githubusercontent.com/adamcaudill/libsodium-net/master/LICENSE</LicenseUrl>
     <ProjectUrl>https://github.com/adamcaudill/libsodium-net</ProjectUrl>
@@ -25,6 +25,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="build\libsodium-net.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="build\libsodium-net.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="libsodium" Version="1.0.17.1" />
   </ItemGroup>
@@ -35,6 +43,20 @@
 
   <ItemGroup Condition="'$(TargetFramework)'=='net46'">
     <None Include="Sodium.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="build\x64\" />
+    <Folder Include="build\x86\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="build\x64\libsodium.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="build\x86\libsodium.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
