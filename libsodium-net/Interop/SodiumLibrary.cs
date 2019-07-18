@@ -10,13 +10,7 @@ namespace Sodium.Interop
 {
   internal static class SodiumLibrary
   {
-    private const string Name = SodiumRuntimeConfig.LibraryName;
-
-    static SodiumLibrary()
-    {
-      RuntimeShim.PinDllImportLibrary(Name);
-      sodium_init();
-    }
+    public const string Name = SodiumRuntimeConfig.LibraryName;
 
     [DllImport(Name, CallingConvention = CallingConvention.Cdecl)]
     internal static extern void sodium_init();

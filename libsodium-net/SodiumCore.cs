@@ -53,8 +53,14 @@ namespace Sodium
 
     /// <summary>Initialize libsodium.</summary>
     /// <remarks>This only needs to be done once, so this prevents repeated calls.</remarks>
-    public static void Init()
+    public static void Init(bool pinDll = true)
     {
+      if (pinDll)
+      {
+        RuntimeShim.PinDllImportLibrary(SodiumLibrary.Name);
+      }
+
+      SodiumLibrary.sodium_init();
     }
   }
 }
